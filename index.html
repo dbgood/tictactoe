@@ -1,0 +1,193 @@
+<html>
+<head>
+	<title>Tic-Tac-Toe</title>
+</head>
+<body>
+	<h1>Tic-Tac-Toe</h1>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+	<script type="text/javascript" src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+
+
+	<style type = "text/css">
+
+
+		td{
+			border: 2px solid black;
+			width: 200px;
+			height: 200px;
+			font-size: 75px;
+			text-align: center; 
+			background: silver;
+		}
+h1{
+	text-align: center;
+}
+
+table{
+	margin: auto;
+}
+
+	</style>
+
+
+
+	<table>
+
+		<tr>
+			<td id="1"> "one" </td>
+			<td id="2"> "two" </td>
+			<td id="3"> "three" </td>
+		</tr>
+
+		<tr>
+			<td id="4"> "four" </td>
+			<td id="5"> "five" </td>
+			<td id="6"> "six" </td>
+		</tr>
+
+		<tr>
+			<td id="7"> "seven" </td>
+			<td id="8"> "eight" </td>
+			<td id="9"> "nine" </td>
+		</tr>
+
+
+
+	</table>
+
+	<script type="text/javascript" >
+
+		$(document).ready(function() {
+			var turn = 1
+
+			$('td').on('click', function() {
+				var self = $(this);
+
+				if (turn % 2 === 0) {	
+					self.text ("o");
+				}
+				else {
+					self.text ("x")
+				}
+				turn ++;
+				self.off ('click');
+
+				var result = checkwin();
+				if (result ==="o" || result ==="x") {
+					alert("Nobody wins");
+					location.reload();
+				}
+				else {
+				}
+
+			});
+
+
+
+			function checkwin() {
+
+				//Checks top row for matching characters
+				var char1 = $('#1').text();
+				var char2 = $('#2').text();
+				var char3 = $('#3').text();
+				if(char1 === char2 && char1 === char3) {
+					alert("Win");
+				}
+
+				var char4 = $('#4').text();
+				var char5 = $('#5').text();
+				var char6 = $('#6').text();
+				if(char4 === char5 && char4 === char6) {
+					alert("Win");
+				}
+
+				var char7 = $('#7').text();
+				var char8 = $('#8').text();
+				var char9 = $('#9').text();
+				if(char7 === char8 && char7 === char9) {
+					alert("Win");
+				}
+
+				var char1 = $('#1').text();
+				var char4 = $('#4').text();
+				var char7 = $('#7').text();
+				if(char1 === char4 && char1 === char7) {
+					alert("Win");
+				}
+
+				var char2 = $('#2').text();
+				var char5 = $('#5').text();
+				var char8 = $('#8').text();
+				if(char1 === char4 && char1 === char7) {
+					alert("Win");
+				}
+
+				var char3 = $('#3').text();
+				var char6 = $('#6').text();
+				var char9 = $('#9').text();
+				if(char2 === char5 && char2 === char8) {
+					alert("Win");
+				}
+
+				var char1 = $('#1').text();
+				var char5 = $('#5').text();
+				var char9 = $('#9').text();
+				if(char1 === char5 && char1 === char9) {
+					alert("Win");
+				}
+
+				var char3 = $('#3').text();
+				var char5 = $('#5').text();
+				var char7 = $('#7').text();
+				if(char3 === char5 && char3 === char7) {
+					alert("Win");
+				}
+
+
+
+
+			}
+
+
+
+			// 		wins = [
+			// [1,2,3],
+			// [4,5,6],
+			// [7,8,9],
+			// [1,4,7],
+			// [2,5,8],
+			// [3,6,9],
+			// [1,5,9],
+			// [3,5,7]
+			// ]
+
+			// function checkwin() {
+			// 	for(var i = 0; i < wins.length; i++) {
+			// 		var cell1 = $("#" + wins[i][0]).text();
+			// 		var cell2 = $("#" + wins[i][1]).text();
+			// 		var cell3 = $("#" + wins[i][2]).text();
+
+			// 		if (cell1 === cell2 && cell1 === cell3 && cell1 != "") {
+			// 			return cell1;
+			// 		}
+			// 	}
+			// 	return false;
+			// }
+
+
+
+		});
+
+</script>
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
